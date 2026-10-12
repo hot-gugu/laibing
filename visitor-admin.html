@@ -36,7 +36,8 @@
 .metric-row button.metric{font:inherit;text-align:left;color:#24344d;cursor:pointer;appearance:none}.metric-row button.metric.active{background:#eef6ff;box-shadow:inset 0 0 0 2px #0879ff}.metric-row button.metric:focus-visible{outline:2px solid #0879ff;outline-offset:2px}
 
 .visitor-detail-drawer .vehicle-list{display:flex;flex-direction:column;gap:10px}.visitor-detail-drawer .vehicle-detail{width:100%;min-width:0}.visitor-detail-drawer .vehicle-detail>div{min-width:0;overflow-wrap:anywhere}
-</style></head>
+</style><link rel="stylesheet" href="prototype-annotations.css">
+</head>
 <body class="admin-page" data-view="admin">
   <div class="admin-shell">
     <aside class="admin-sidebar"><div class="admin-brand"><span class="brand-logo">访</span><span><strong>安全生产系统</strong><small>来宾广投新材料</small></span></div><nav><a class="active" href="visitor-admin.html">访客管理</a><a href="visitor.html">访客端预览</a></nav><p>静态交互原型<br>数据保存在当前浏览器</p></aside>
@@ -143,4 +144,6 @@ if(document.body.dataset.view==='admin')renderAdmin('reception');
 function initVisitTimeTabs(){const tabs=document.getElementById('visit-time-tabs'),buttons=Array.from(tabs.querySelectorAll('[data-time-scope]'));const select=button=>{tabs.dataset.scope=button.dataset.timeScope;buttons.forEach(b=>{const selected=b===button;b.classList.toggle('active',selected);b.setAttribute('aria-selected',String(selected));b.tabIndex=selected?0:-1});document.getElementById('visit-results').setAttribute('aria-labelledby',button.id);document.getElementById('status-filter').dispatchEvent(new Event('change'))};buttons.forEach((button,index)=>{button.onclick=()=>select(button);button.onkeydown=e=>{if(['ArrowLeft','ArrowRight','Home','End'].includes(e.key)){e.preventDefault();const next=e.key==='Home'?buttons[0]:e.key==='End'?buttons.at(-1):buttons[(index+1)%buttons.length];select(next);next.focus()}}});document.addEventListener('visibilitychange',()=>{if(!document.hidden)document.getElementById('status-filter').dispatchEvent(new Event('change'))})}
 if(document.body.dataset.view==='admin')initVisitTimeTabs();
   </script>
+<script src="prototype-annotations-data.js"></script>
+<script src="prototype-annotations.js"></script>
 </body></html>

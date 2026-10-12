@@ -17,6 +17,7 @@
     .footer[hidden]{display:none}
     .identity small[hidden]{display:none}
   </style>
+<link rel="stylesheet" href="prototype-annotations.css">
 </head>
 <body>
   <div class="app"><header class="top"><button class="top-back" type="button" data-action="back" aria-label="返回上一页">‹</button><h1>绿十字管理</h1></header><div class="identity"><div><b id="role-name"></b><small id="role-scope"></small></div><button type="button" id="switch-role">切换身份</button></div><main id="content"></main><nav class="footer" id="main-navigation" aria-label="主导航"><button type="button" data-tab="report">我的填报</button><button type="button" data-tab="manage">我管理的填报</button></nav></div><div id="sheet-root"></div>
@@ -80,5 +81,7 @@
       render();
     })();
   </script>
+<script src="prototype-annotations-data.js"></script>
+<script src="prototype-annotations.js"></script>
 </body>
 </html>
