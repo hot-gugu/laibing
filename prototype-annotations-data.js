@@ -2569,6 +2569,207 @@ window.PROTOTYPE_ANNOTATIONS = [
     "title": "原型标注阅读入口",
     "body": "来源：首页电脑端分组 → 点击原型标注 → 原型标注.HTML。在当前窗口查看按页面组织的页面截图与功能说明，不修改业务数据。",
     "updatedAt": "2026-10-15T06:35:20.616Z"
+  },
+  {
+    "id": "hazard-plan-overview",
+    "page": "隐患计划管理.html",
+    "context": "隐患计划管理.html::page",
+    "target": "#planView",
+    "title": "计划详情",
+    "body": "计划信息展示基本信息、检查对象及检查人。任务执行情况、隐患清单目前为空态占位。人员编辑期间切换Tab提示请先保存或取消人员修改；本页未实现按角色限制修改人员，正式权限待确认。",
+    "updatedAt": "2026-10-15T10:28:53.451760+00:00",
+    "system": true
+  },
+  {
+    "id": "hazard-plan-edit",
+    "page": "隐患计划管理.html",
+    "context": "隐患计划管理.html::page",
+    "target": "#edit",
+    "title": "修改人员",
+    "body": "点击复制当前已保存检查人员进入编辑态，显示添加检查人员、取消、保存及行内删除；可调整检查负责人/检查参与人。编辑期间修改仅在草稿中，点击保存后才生效。",
+    "updatedAt": "2026-10-15T10:28:53.451760+00:00",
+    "system": true
+  },
+  {
+    "id": "hazard-plan-roles",
+    "page": "隐患计划管理.html",
+    "context": "隐患计划管理.html::page",
+    "target": "#rows",
+    "title": "检查人员与角色",
+    "body": "查看态展示姓名、单位、检查人类型。编辑态每人单选检查负责人或检查参与人；不限制负责人数量，现有实现不要求至少一位负责人。修改不会立即保存。",
+    "updatedAt": "2026-10-15T10:28:53.451760+00:00",
+    "system": true
+  },
+  {
+    "id": "hazard-plan-add",
+    "page": "隐患计划管理.html",
+    "context": "隐患计划管理.html::page",
+    "target": "#add",
+    "title": "添加检查人员",
+    "body": "来源：人员编辑态 → 添加检查人员 → 选择检查人员弹窗。默认组织架构，清空本次搜索、勾选和组织条件。已有草稿人员不出现在候选名单，避免重复添加。",
+    "updatedAt": "2026-10-15T10:28:53.451760+00:00",
+    "system": true
+  },
+  {
+    "id": "hazard-plan-delete",
+    "page": "隐患计划管理.html",
+    "context": "隐患计划管理.html::page",
+    "target": "[data-delete]",
+    "title": "删除检查人员",
+    "body": "点击删除须确认从本计划移除指定姓名；确认只从草稿移除，保存后生效。取消删除不变更草稿；取消本次人员编辑可恢复全部已保存人员。",
+    "updatedAt": "2026-10-15T10:28:53.451760+00:00",
+    "system": true
+  },
+  {
+    "id": "hazard-plan-save",
+    "page": "隐患计划管理.html",
+    "context": "隐患计划管理.html::page",
+    "target": "#save",
+    "title": "保存人员",
+    "body": "至少保留一名检查人员；为空提示请至少添加一名检查人员。保存成功更新列表和负责人/参与人计数，退出编辑态并提示检查人员已保存；本地存储失败提示重试并保留草稿。当前为静态本地保存，不代表服务器同步。",
+    "updatedAt": "2026-10-15T10:28:53.451760+00:00",
+    "system": true
+  },
+  {
+    "id": "hazard-plan-cancel",
+    "page": "隐患计划管理.html",
+    "context": "隐患计划管理.html::page",
+    "target": "#cancel",
+    "title": "取消人员修改",
+    "body": "直接放弃本轮草稿并退出编辑态，回显此前已保存人员。页面返回在编辑态询问人员修改尚未保存，确定离开吗；浏览器离开时提供未保存提醒。",
+    "updatedAt": "2026-10-15T10:28:53.451760+00:00",
+    "system": true
+  },
+  {
+    "id": "hazard-plan-back",
+    "page": "隐患计划管理.html",
+    "context": "隐患计划管理.html::page",
+    "target": "#back",
+    "title": "返回",
+    "body": "来源：计划详情 → 返回 → index.html，同页跳转；编辑态先确认是否放弃未保存内容。",
+    "updatedAt": "2026-10-15T10:28:53.451760+00:00",
+    "system": true
+  },
+  {
+    "id": "hazard-plan-picker-title",
+    "page": "隐患计划管理.html",
+    "context": "隐患计划管理.html::template",
+    "target": "#pickerTitle",
+    "title": "选择检查人员弹窗",
+    "body": "仅编辑态添加检查人员打开。弹窗含已选标签、人员来源、组织树、姓名搜索、勾选表格与分页。确认添加只写入编辑草稿，仍需主页面保存。关闭/取消/Escape放弃本次弹窗选择，保留打开前的编辑草稿并返回添加按钮。",
+    "updatedAt": "2026-10-15T10:28:53.451760+00:00",
+    "system": true,
+    "kind": "layer-template"
+  },
+  {
+    "id": "hazard-plan-sources",
+    "page": "隐患计划管理.html",
+    "context": "隐患计划管理.html::template",
+    "target": ".source-tabs",
+    "title": "组织架构与相关方",
+    "body": "组织架构为默认来源。切换来源重置组织条件、组织搜索及页码，保留已选人员和姓名搜索。相关方当前无数据，展示暂无相关方及暂无可选人员，不伪造候选人员。",
+    "updatedAt": "2026-10-15T10:28:53.451760+00:00",
+    "system": true,
+    "kind": "layer-template"
+  },
+  {
+    "id": "hazard-plan-tree",
+    "page": "隐患计划管理.html",
+    "context": "隐患计划管理.html::template",
+    "target": "#tree",
+    "title": "组织筛选",
+    "body": "支持公司、部门、班组；点击节点筛选对应候选人员并回到第一页。公司显示全部候选人员。组织搜索仅过滤树节点，与人员姓名搜索分别生效。",
+    "updatedAt": "2026-10-15T10:28:53.451760+00:00",
+    "system": true,
+    "kind": "layer-template"
+  },
+  {
+    "id": "hazard-plan-org-search",
+    "page": "隐患计划管理.html",
+    "context": "隐患计划管理.html::template",
+    "target": "#orgSearch",
+    "title": "搜索组织",
+    "body": "按名称匹配部门或班组，仅过滤组织树展示；相关方来源显示搜索相关方占位。无匹配显示无匹配组织。",
+    "updatedAt": "2026-10-15T10:28:53.451760+00:00",
+    "system": true,
+    "kind": "layer-template"
+  },
+  {
+    "id": "hazard-plan-person-search",
+    "page": "隐患计划管理.html",
+    "context": "隐患计划管理.html::template",
+    "target": "#personSearch",
+    "title": "搜索人员姓名",
+    "body": "按姓名包含关键词匹配，与当前组织、来源叠加，排除已在编辑草稿中的人员。输入回到第一页，不清空已选人员；无结果展示暂无可选人员。",
+    "updatedAt": "2026-10-15T10:28:53.451760+00:00",
+    "system": true,
+    "kind": "layer-template"
+  },
+  {
+    "id": "hazard-plan-candidates",
+    "page": "隐患计划管理.html",
+    "context": "隐患计划管理.html::template",
+    "target": "#candidates",
+    "title": "候选人员表格",
+    "body": "展示姓名、账号、手机号、部门、班组、岗位，账号和手机号缺失显示未录入。勾选加入本次已选集合，取消勾选移除；分页和搜索保留选择。",
+    "updatedAt": "2026-10-15T10:28:53.451760+00:00",
+    "system": true,
+    "kind": "layer-template"
+  },
+  {
+    "id": "hazard-plan-all",
+    "page": "隐患计划管理.html",
+    "context": "隐患计划管理.html::template",
+    "target": "#all",
+    "title": "本页全选",
+    "body": "只选择或取消当前页人员，不影响其他页选择；部分选择显示半选，无候选时禁用。每页10人。",
+    "updatedAt": "2026-10-15T10:28:53.451760+00:00",
+    "system": true,
+    "kind": "layer-template"
+  },
+  {
+    "id": "hazard-plan-chips",
+    "page": "隐患计划管理.html",
+    "context": "隐患计划管理.html::template",
+    "target": "#chips",
+    "title": "已选人员",
+    "body": "展示本次弹窗已选人员标签；点击标签叉号移除并同步表格勾选及确认添加人数。未选时显示暂未选择人员。",
+    "updatedAt": "2026-10-15T10:28:53.451760+00:00",
+    "system": true,
+    "kind": "layer-template"
+  },
+  {
+    "id": "hazard-plan-paging",
+    "page": "隐患计划管理.html",
+    "context": "隐患计划管理.html::template",
+    "target": ".paging",
+    "title": "人员分页",
+    "body": "每页10人，展示匹配总数及当前页/总页数，首末页对应按钮禁用。跨页选择保留。",
+    "updatedAt": "2026-10-15T10:28:53.451760+00:00",
+    "system": true,
+    "kind": "layer-template"
+  },
+  {
+    "id": "hazard-plan-confirm",
+    "page": "隐患计划管理.html",
+    "context": "隐患计划管理.html::template",
+    "target": "#confirmPeople",
+    "title": "确认添加",
+    "body": "未勾选时禁用；有选择时显示确认添加及人数。确认后将已选人员以检查参与人加入编辑草稿，关闭弹窗并刷新列表计数，不直接保存。",
+    "updatedAt": "2026-10-15T10:28:53.451760+00:00",
+    "system": true,
+    "kind": "layer-template"
+  },
+  {
+    "id": "hazard-plan-close",
+    "page": "隐患计划管理.html",
+    "context": "隐患计划管理.html::template",
+    "target": "[data-close]",
+    "title": "取消选择",
+    "body": "点击取消或右上角关闭关闭弹窗，丢弃本次勾选，保留原编辑草稿；Escape同样关闭。",
+    "updatedAt": "2026-10-15T10:28:53.451760+00:00",
+    "system": true,
+    "kind": "layer-template"
   }
 ];
 window.PROTOTYPE_ANNOTATION_RULES = window.PROTOTYPE_ANNOTATIONS.filter(n=>n.kind==='layer-template'&&!n.deleted);

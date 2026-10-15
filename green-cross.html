@@ -99,9 +99,11 @@ body[data-page="cross"] .page-content{max-width:none;margin:0;padding:10px}
 .cross-content>[hidden]{display:none!important}.statistics-layout{display:grid;grid-template-columns:250px minmax(0,1fr);gap:16px;align-items:start}.statistics-aside{overflow:hidden;position:sticky;top:16px}.statistics-aside .hierarchy{max-height:calc(100vh - 210px);overflow:auto}.statistics-panel{min-width:0}.statistics-filters{align-items:center}.statistics-filters>span{flex:none}#statistics-presets{display:flex;flex-wrap:wrap;gap:8px}#statistics-custom{display:flex;align-items:center;flex-wrap:wrap;gap:8px;flex-basis:100%}#statistics-custom[hidden]{display:none!important}#statistics-custom label{display:flex;align-items:center;gap:8px;font-weight:400}#statistics-custom input{width:132px;height:36px;border:1px solid var(--control);border-radius:8px;padding:0 10px;color:var(--ink);background:#fff}#statistics-error{color:#ef2f4f;margin:0;font-size:12px;flex-basis:100%}#statistics-error:empty{display:none}body.statistics-active .view-tabs-row{display:none!important}@media(max-width:860px){.statistics-layout{grid-template-columns:200px minmax(0,1fr)}.statistics-aside .hierarchy{display:block}.statistics-aside .tree-row{width:100%;white-space:normal}.statistics-aside .tree-depth-1{padding-left:24px}.statistics-aside .tree-depth-2{padding-left:40px}}@media(max-width:620px){.statistics-layout{grid-template-columns:1fr}.statistics-aside{position:static}.statistics-aside .hierarchy{max-height:230px}.statistics-panel{padding:14px}}
 
 #statistics-time{flex-wrap:nowrap;gap:8px;overflow-x:auto}#statistics-presets{flex-wrap:nowrap;flex:none;gap:6px}#statistics-time button{white-space:nowrap;padding:0 9px}#statistics-range{flex:0 0 232px;width:232px;min-width:232px;max-width:232px;height:36px;border:1px solid var(--control);border-radius:8px;padding:0 10px;color:var(--ink);background:#fff;font:inherit;font-size:12px}#statistics-range:focus{outline:2px solid #a9c9ff;outline-offset:1px}.statistics-report-tabs{margin-bottom:14px;display:inline-flex}.statistics-table-wrap[hidden]{display:none!important}#statistics-error:not(:empty){min-width:220px} 
+
+.cross-role-switch{position:relative;font-size:12px}.cross-role-switch summary{list-style:none;cursor:pointer;padding:6px 10px;border:1px solid var(--control);border-radius:8px;background:#fff;color:var(--primary);min-width:98px}.cross-role-switch>div{position:absolute;right:0;top:calc(100% + 6px);min-width:150px;padding:5px;background:#fff;border:1px solid var(--line);border-radius:8px;z-index:25;box-shadow:var(--shadow)}.cross-role-switch button{display:block;width:100%;text-align:left;padding:8px 10px;background:#fff;border:0;border-radius:6px;color:var(--ink);font-size:14px}.cross-role-switch button.active,.cross-role-switch button:hover{background:var(--soft);color:var(--primary)}
 </style>
 <link rel="stylesheet" href="prototype-annotations.css">
-</head>
+<script src="statistics-xlsx-export.js"></script></head>
 <body data-page="cross">
   <div class="app-shell">
     <aside class="sidebar" aria-label="主导航">
@@ -117,7 +119,7 @@ body[data-page="cross"] .page-content{max-width:none;margin:0;padding:10px}
       <div class="sidebar-bottom"><span class="online-dot"></span> 本地交互演示 <small>数据仅保存在当前浏览器</small></div>
     </aside>
     <div class="workspace">
-      <header class="topbar"><span>安全生产 / <b>绿十字管理</b></span><div class="topbar-right"><span class="demo-tag">演示数据</span><span class="avatar">安</span><span>安全管理员</span></div></header>
+      <header class="topbar"><span>安全生产 / <b>绿十字管理</b></span><div class="topbar-right"><span class="demo-tag">演示数据</span><span class="avatar">安</span><span id="cross-account-name">安全管理员</span><details class="cross-role-switch" id="cross-role-switch"><summary id="cross-role-caption">个人 ▾</summary><div id="cross-role-options"></div></details></div></header>
       <main class="page-content cross-content">
         <div class="view-tabs-row"><div class="view-tabs" role="tablist" aria-label="绿十字视图"><button class="view-tab active" type="button" role="tab" aria-selected="true" data-action="switch-cross-view" data-view="annual">绿十字年度卡</button><button class="view-tab" hidden type="button" role="tab" aria-selected="false" data-action="switch-cross-view" data-view="attention">未填报/事故人员</button><button class="view-tab" type="button" role="tab" aria-selected="false" data-action="switch-cross-view" data-view="exempt">无需参与填报人员</button></div><div class="heading-actions"><button class="btn primary" type="button" data-action="report">＋ 每日填报</button></div></div>
         <div id="annual-view">
@@ -125,13 +127,13 @@ body[data-page="cross"] .page-content{max-width:none;margin:0;padding:10px}
         <div class="cross-layout">
           <aside class="panel hierarchy-panel"><div class="section-head compact"><div><h2>组织层级</h2><p>选择对象查看年度卡</p></div></div><div id="hierarchy" class="hierarchy"></div></aside>
           <section class="panel card-panel">
-            <div class="card-toolbar"><div id="breadcrumb" class="breadcrumb"></div><div class="annual-toolbar-actions"><span id="annual-person-entry"></span><div class="year-switch"><button type="button" data-action="prev-year" aria-label="上一年">‹</button><strong id="selected-year"></strong><button type="button" data-action="next-year" aria-label="下一年">›</button></div><button class="btn soft" type="button" data-action="print">打印 / 导出 PDF</button></div></div>
+            <div class="card-toolbar"><div id="breadcrumb" class="breadcrumb"></div><div class="annual-toolbar-actions"><span id="annual-person-entry"></span><div class="year-switch"><button type="button" data-action="prev-year" aria-label="上一年">‹</button><strong id="selected-year"></strong><button type="button" data-action="next-year" aria-label="下一年">›</button></div><button class="btn soft" type="button" data-action="print">导出</button></div></div>
             <div id="annual-card" class="annual-card"></div>
           </section>
         </div></div>
         <section id="attention-view" class="panel attention-panel" hidden><div class="attention-toolbar"><div><h2>未填报/事故人员</h2><p id="attention-scope"></p></div></div><div class="attention-legend"><span class="legend-item"><span class="attention-dot" style="--dot:#179a6b"></span>无事故</span><span class="legend-item"><span class="attention-dot" style="--dot:#6654f7"></span>未填报</span><span class="legend-item"><span class="attention-dot" style="--dot:#8793a3"></span>轻微伤</span><span class="legend-item"><span class="attention-dot" style="--dot:#3287c9"></span>轻伤</span><span class="legend-item"><span class="attention-dot" style="--dot:#e0ad13"></span>重伤</span><span class="legend-item"><span class="attention-dot" style="--dot:#d83b42"></span>死亡</span></div><div class="attention-layout"><div class="attention-calendar"><div class="calendar-toolbar"><div class="month-switch"><button type="button" data-action="prev-attention-month" aria-label="上个月">‹</button><strong id="attention-month-label"></strong><button type="button" data-action="next-attention-month" aria-label="下个月">›</button></div></div><div class="calendar-weekdays"><span>日</span><span>一</span><span>二</span><span>三</span><span>四</span><span>五</span><span>六</span></div><div id="attention-days" class="attention-days"></div></div><aside id="attention-detail" class="attention-detail"></aside></div></section>
         <section id="exempt-view" class="panel exempt-panel" hidden><div class="exempt-toolbar"><div><h2>无需参与填报人员</h2><p>已配置人员不计入应填、未填报和日历状态统计</p></div><button class="btn primary" type="button" data-action="configure-exempt">＋ 新增无需填报人员</button></div><div id="exempt-view-list" class="exempt-list-panel"></div></section>
-<section id="statistics-view" hidden><div class="statistics-layout"><aside class="panel statistics-aside"><div class="section-head compact"><div><h2>组织层级</h2><p>选择公司、部门或班组查看报表</p></div></div><div id="statistics-scope" class="hierarchy" aria-label="统计组织架构"></div></aside><div class="statistics-panel"><div class="statistics-head"><div><h1>绿十字统计报表</h1><p id="statistics-period"></p></div><button type="button" class="btn soft" id="statistics-export">导出报表</button></div><div class="statistics-filters" id="statistics-time"><span>统计时间</span><div id="statistics-presets"></div><input id="statistics-range" type="text" aria-label="统计日期范围" placeholder="YYYY-MM-DD 至 YYYY-MM-DD" autocomplete="off" spellcheck="false"><p id="statistics-error" role="alert"></p></div><div class="view-tabs statistics-report-tabs" role="tablist" aria-label="报表类型"><button class="view-tab active" id="statistics-tab-organizations" type="button" role="tab" aria-selected="true" aria-controls="statistics-organizations" data-statistics-tab="organizations">组织累计汇总</button><button class="view-tab" id="statistics-tab-people" type="button" role="tab" aria-selected="false" aria-controls="statistics-people" data-statistics-tab="people" tabindex="-1">人员累计明细</button></div><div class="statistics-table-wrap" id="statistics-organizations" role="tabpanel" aria-labelledby="statistics-tab-organizations"></div><div class="statistics-table-wrap" id="statistics-people" role="tabpanel" aria-labelledby="statistics-tab-people" hidden></div></div></div></section>
+<section id="statistics-view" hidden><div class="statistics-layout"><aside class="panel statistics-aside"><div class="section-head compact"><div><h2>组织层级</h2><p>选择公司、部门或班组查看报表</p></div></div><div id="statistics-scope" class="hierarchy" aria-label="统计组织架构"></div></aside><div class="statistics-panel"><div class="statistics-head"><div><h1>绿十字统计报表</h1><p id="statistics-period"></p></div><button type="button" class="btn soft" id="statistics-export">导出</button></div><div class="statistics-filters" id="statistics-time"><span>统计时间</span><div id="statistics-presets"></div><input id="statistics-range" type="text" aria-label="统计日期范围" placeholder="YYYY-MM-DD 至 YYYY-MM-DD" autocomplete="off" spellcheck="false"><p id="statistics-error" role="alert"></p></div><div class="view-tabs statistics-report-tabs" role="tablist" aria-label="报表类型"><button class="view-tab active" id="statistics-tab-organizations" type="button" role="tab" aria-selected="true" aria-controls="statistics-organizations" data-statistics-tab="organizations">组织累计汇总</button><button class="view-tab" id="statistics-tab-people" type="button" role="tab" aria-selected="false" aria-controls="statistics-people" data-statistics-tab="people" tabindex="-1">人员累计明细</button></div><div class="statistics-table-wrap" id="statistics-organizations" role="tabpanel" aria-labelledby="statistics-tab-organizations"></div><div class="statistics-table-wrap" id="statistics-people" role="tabpanel" aria-labelledby="statistics-tab-people" hidden></div></div></div></section>
       </main>
     </div>
   </div>
@@ -162,7 +164,12 @@ body[data-page="cross"] .page-content{max-width:none;margin:0;padding:10px}
   let data = load();
   let currentDepartment = data.departments[0]?.id;
   let searchText = '';
-  const currentAccountPersonId = 'p2'; // Existing demo identity used by personal reporting.
+  const crossRoles=[{id:'self',name:'个人',personId:'p2'},{id:'leader',name:'班组长',personId:'p1'},{id:'department',name:'部门管理员',personId:'p9'},{id:'company',name:'公司管理员',personId:'p10'}];
+  let crossRole=crossRoles[0];
+  let currentAccountPersonId=crossRole.personId;
+  function canRoleReport(member,date){const account=person(currentAccountPersonId);if(!member||!account)return false;if(crossRole.id==='company')return true;if(crossRole.id==='department')return member.departmentId===account.departmentId;if(crossRole.id==='leader')return Boolean(assignmentAt(account,date))&&assignmentAt(member,date)===assignmentAt(account,date);return member.id===account.id}
+  function roleReportScope(){const account=person(currentAccountPersonId);return crossRole.id==='company'?{type:'company',id:company.id}:crossRole.id==='department'?{type:'department',id:account.departmentId}:crossRole.id==='leader'&&assignmentAt(account,today)?{type:'team',id:assignmentAt(account,today)}:{type:'person',id:account.id}}
+
   let currentObject = { type: 'person', id: currentAccountPersonId };
   let currentYear = now.getFullYear();
   let currentView = 'annual';
@@ -764,17 +771,17 @@ body[data-page="cross"] .page-content{max-width:none;margin:0;padding:10px}
   }
   function validDate(text) { return /^\d{4}-\d{2}-\d{2}$/.test(text) && localDate(dateAtNoon(text)) === text; }
   function reportForm(defaultPerson, defaultDate) {
-    const reportScope = { ...currentObject };
+    const reportScope = crossRole.id==='self'?roleReportScope():{ ...currentObject };
     const reportDate = defaultDate || today;
-    const eligiblePeople = () => data.people.filter(member => memberInObject(member, reportScope.type, reportScope.id, validDate(document.getElementById('report-date')?.value.trim() || '') ? document.getElementById('report-date').value.trim() : reportDate));
-    const initialPeople = data.people.filter(member => memberInObject(member, reportScope.type, reportScope.id, reportDate));
-    let selectedPerson = initialPeople.some(member => member.id === defaultPerson) ? defaultPerson : (initialPeople.find(member => member.id === 'p2') || initialPeople[0])?.id;
+    const eligiblePeople = () => data.people.filter(member => canRoleReport(member,validDate(document.getElementById('report-date')?.value.trim() || '')?document.getElementById('report-date').value.trim():reportDate) && memberInObject(member, reportScope.type, reportScope.id, validDate(document.getElementById('report-date')?.value.trim() || '') ? document.getElementById('report-date').value.trim() : reportDate));
+    const initialPeople = data.people.filter(member => canRoleReport(member,reportDate)&&memberInObject(member, reportScope.type, reportScope.id, reportDate));
+    let selectedPerson = initialPeople.some(member => member.id === defaultPerson) ? defaultPerson : (initialPeople.find(member => member.id === currentAccountPersonId) || initialPeople[0])?.id;
     const useList = ['company', 'department'].includes(reportScope.type) || initialPeople.length > 20;
     let personQuery = '';
     let personDepartment = '';
     let personTeam = '';
     let selectedGrade = 'none';
-    let source = 'self';
+    let source = selectedPerson===currentAccountPersonId?'self':crossRole.id==='leader'?'proxy':'admin';
     const date = defaultDate || today;
     const body = `<div class="form-section"><h3>填报信息</h3><div class="field"><span class="field-label">填报人员<span class="required">*</span></span><div id="report-selected" class="report-selection" aria-live="polite"></div>${useList ? '<label class="report-picker-search"><span class="sr-only">搜索填报人员姓名</span><input id="report-person-search" type="search" placeholder="搜索人员姓名"></label><div id="report-departments" class="report-orgs" aria-label="部门筛选"></div><div id="report-teams" class="report-orgs" aria-label="班组筛选"></div><div id="report-person-count" class="report-picker-count" aria-live="polite"></div>' : ''}<div id="report-persons" class="${useList ? 'report-person-list' : 'chip-options report-chip-list'}"></div></div><label class="field"><span class="field-label">自然日期<span class="required">*</span></span><input id="report-date" type="text" inputmode="numeric" value="${date}" placeholder="YYYY-MM-DD"><span class="field-hint">仅可填写今天及过去的在职日期；夜班排班归属开始日。</span></label><div class="field"><span class="field-label">填报方式</span><div class="chip-options" id="report-source"><button type="button" class="option-chip active" data-report-source="self">员工本人</button><button type="button" class="option-chip" data-report-source="proxy">班组长代报</button></div></div><div class="field"><span class="field-label">当日最高事故等级<span class="required">*</span></span><div class="grade-options" id="report-grades">${grades.map(x => `<button type="button" class="grade-option ${x.id === selectedGrade ? 'active' : ''}" data-report-grade="${x.id}"><span class="grade-dot" style="--grade-color:${x.color}"></span>${x.label}</button>`).join('')}</div></div></div><div class="hint-box" id="report-hint">本人已提交的历史记录再次修改会生成更正申请；班组长代报覆盖原值并留痕。</div><div class="error-text" id="report-error"></div>`;
     openDrawer('每日安全生产填报', '每人每天记录一个最高事故等级', body, '<button class="btn soft" type="button" data-action="close-overlay">取消</button><button class="btn primary" type="button" id="submit-report">提交记录</button>');
@@ -784,6 +791,9 @@ body[data-page="cross"] .page-content{max-width:none;margin:0;padding:10px}
       const available = eligiblePeople();
       if (!available.some(member => member.id === selectedPerson)) selectedPerson = undefined;
       const selected = person(selectedPerson);
+      const options=[];if(selectedPerson===currentAccountPersonId)options.push({id:'self',label:'员工本人'});if(crossRole.id==='leader')options.push({id:'proxy',label:'班组长代报'});if(['department','company'].includes(crossRole.id))options.push({id:'admin',label:'管理员填报'});if(!options.some(option=>option.id===source))source=options[0]?.id||'self';
+      document.getElementById('report-source').innerHTML=options.map(option=>`<button type="button" class="option-chip ${source===option.id?'active':''}" data-report-source="${option.id}">${option.label}</button>`).join('');
+      document.getElementById('report-hint').textContent=crossRole.id==='self'?'本人修改已提交记录会生成更正申请，确认前原等级继续有效。':'可填写当前角色范围内人员；本人修改走更正，代报/管理员填报覆盖并保留修改记录。';
       document.getElementById('report-selected').innerHTML = selected ? `已选：${escapeHtml(selected.name)}<small>${escapeHtml(organizationLabel(selected))}</small>` : '请选择填报人员';
       if (useList) {
         const departments = data.departments.filter(item => available.some(member => member.departmentId === item.id));
@@ -813,8 +823,9 @@ body[data-page="cross"] .page-content{max-width:none;margin:0;padding:10px}
       if (!validDate(dateText)) { error.textContent = '请输入有效日期，格式为 YYYY-MM-DD'; return; }
       if (dateText > today) { error.textContent = '未来日期不可填报'; return; }
       const member = person(selectedPerson);
-      if (!member || !memberInObject(member, reportScope.type, reportScope.id, dateText)) { error.textContent = '请选择当前组织范围内的有效填报人员'; return; }
+      if (!member || !canRoleReport(member,dateText) || !memberInObject(member, reportScope.type, reportScope.id, dateText)) { error.textContent = '请选择当前组织范围内的有效填报人员'; return; }
       if (dateText < member.joinedAt || (member.leftAt && dateText > member.leftAt)) { error.textContent = '此人该日期不在在职有效期内'; return; }
+      if(source==='self'&&selectedPerson!==currentAccountPersonId){error.textContent='仅可作为本人填写自己的记录';return;}
       if (source === 'proxy' && !assignmentAt(member, dateText)) { error.textContent = '部门人员代报权限尚待确认，演示中暂不可代报'; return; }
       const key = recordKey(selectedPerson, dateText);
       const previous = data.records[key];
@@ -824,18 +835,19 @@ body[data-page="cross"] .page-content{max-width:none;margin:0;padding:10px}
         save(); closeDrawer(); renderCross(); toast('更正申请已提交，原等级暂时有效'); return;
       }
       const assignedTeam = assignmentAt(member, dateText);
-      const newEntry = { grade: selectedGrade, source, actor: source === 'proxy' ? '班组长（演示）' : selectedPerson, submittedAt: new Date().toISOString(), teamId: assignedTeam, version: (previous?.version || 0) + 1, history: previous ? [...(previous.history || []), { grade: previous.grade, submittedAt: previous.submittedAt, actor: previous.actor }] : [] };
+      const newEntry = { grade: selectedGrade, source, actor: source === 'self' ? selectedPerson : currentAccountPersonId, submittedAt: new Date().toISOString(), teamId: assignedTeam, version: (previous?.version || 0) + 1, history: previous ? [...(previous.history || []), { grade: previous.grade, submittedAt: previous.submittedAt, actor: previous.actor }] : [] };
       data.records[key] = newEntry;
-      save(); closeDrawer(); renderCross(); toast(previous ? '代报已覆盖原记录并留痕' : '每日记录已提交');
+      save(); closeDrawer(); renderCross(); toast(previous ? '记录已更新并留痕' : '每日记录已提交');
     };
   }
   function approveCorrection(id, date) {
     const request = data.corrections.find(x => x.id === id && x.status === 'pending');
     if (!request) { toast('申请已处理或不存在'); return; }
+    if(crossRole.id==='self'||!canRoleReport(person(request.personId),date)){toast('当前角色没有此人员的更正确认权限');return;}
     const entry = data.records[recordKey(request.personId, request.date)];
     if (!entry) { toast('原记录不存在，无法确认'); return; }
     entry.history = [...(entry.history || []), { grade: entry.grade, submittedAt: entry.submittedAt, actor: entry.actor }];
-    entry.grade = request.nextGrade; entry.version++; entry.submittedAt = new Date().toISOString(); entry.actor = '班组长（演示确认）';
+    entry.grade = request.nextGrade; entry.version++; entry.submittedAt = new Date().toISOString(); entry.actor = currentAccountPersonId;
     request.status = 'approved'; request.reviewedAt = new Date().toISOString();
     save(); renderCross(); showDay(date); toast('更正已确认，统计已重算');
   }
@@ -913,7 +925,7 @@ body[data-page="cross"] .page-content{max-width:none;margin:0;padding:10px}
   if (page === 'cross') {
     const account = person(currentAccountPersonId);
     document.querySelector('.topbar-right .avatar').textContent = account?.name?.slice(0, 1) || '我';
-    document.querySelector('.topbar-right > span:last-child').textContent = account?.name || '当前账号';
+    document.getElementById('cross-account-name').textContent = account?.name || '当前账号';
     const params = new URLSearchParams(location.search);
     const type = params.get('type'), id = params.get('id');
     if (type === 'team' && team(id)) currentObject = { type, id };
@@ -999,11 +1011,19 @@ body[data-page="cross"] .page-content{max-width:none;margin:0;padding:10px}
   document.querySelectorAll('[data-statistics-tab]').forEach(button=>{button.onclick=()=>selectStatisticsTab(button.dataset.statisticsTab);button.onkeydown=e=>{if(['ArrowLeft','ArrowRight','Home','End'].includes(e.key)){e.preventDefault();const value=e.key==='Home'?'organizations':e.key==='End'?'people':statisticsTab==='organizations'?'people':'organizations';selectStatisticsTab(value);document.getElementById('statistics-tab-'+value).focus()}}});
   document.getElementById('statistics-export').onclick=()=>{
     const result=statisticsRows();if(!result.rows.length){toast('暂无可导出数据');return}
-    const csvCell=value=>'"'+String(value??'').replaceAll('"','""')+'"';
-    const rows=[['统计期间',statisticsStart||result.all.map(row=>row.date).sort()[0]||'',statisticsEnd],['组织累计汇总'],['统计组织',...statisticsHeaders],...result.organizations.map(item=>[item.name,...item.values]),[],['人员累计明细'],['姓名','记录所属组织',...statisticsHeaders],...result.members.map(item=>[item.name,item.organization,...item.values])];
-    const blob=new Blob(['\ufeff'+rows.map(row=>row.map(csvCell).join(',')).join('\r\n')],{type:'text/csv;charset=utf-8'}),url=URL.createObjectURL(blob),link=document.createElement('a');link.href=url;link.download=`绿十字统计报表-${today}.csv`;link.click();setTimeout(()=>URL.revokeObjectURL(url),1000);toast('报表已导出');
+    const period=['统计期间',statisticsStart||result.all.map(row=>row.date).sort()[0]||'',statisticsEnd];
+    const sheets=[{name:'组织累计汇总',rows:[['组织累计汇总'],period,['统计组织',...statisticsHeaders],...result.organizations.map(item=>[item.name,...item.values])]},{name:'人员累计明细',rows:[['人员累计明细'],period,['姓名','记录所属组织',...statisticsHeaders],...result.members.map(item=>[item.name,item.organization,...item.values])]}];
+    const blob=new Blob([window.buildStatisticsWorkbook(sheets)],{type:'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'}),url=URL.createObjectURL(blob),link=document.createElement('a');link.href=url;link.download=`绿十字统计报表-${today}.xlsx`;link.click();setTimeout(()=>URL.revokeObjectURL(url),1000);toast('报表已导出');
   };
   if(location.hash==='#statistics')showStatistics(true);
+
+
+  if(page==='cross'){
+    const options=document.getElementById('cross-role-options');
+    function renderRoleMenu(){document.getElementById('cross-role-caption').textContent=crossRole.name+' ▾';document.getElementById('cross-account-name').textContent=person(currentAccountPersonId)?.name||'当前账号';document.querySelector('.topbar-right .avatar').textContent=person(currentAccountPersonId)?.name?.slice(0,1)||'我';options.innerHTML=crossRoles.map(role=>`<button type="button" data-cross-role="${role.id}" aria-pressed="${crossRole.id===role.id}" class="${crossRole.id===role.id?'active':''}">${role.name}</button>`).join('')}
+    options.onclick=e=>{const button=e.target.closest('[data-cross-role]');if(!button)return;crossRole=crossRoles.find(role=>role.id===button.dataset.crossRole);currentAccountPersonId=crossRole.personId;currentObject=roleReportScope();closeDrawer();document.getElementById('cross-role-switch').open=false;renderRoleMenu();renderCross();if(!document.getElementById('statistics-view').hidden)renderStatistics();toast('已切换为'+crossRole.name)};
+    renderRoleMenu();
+  }
 
   if (new URLSearchParams(location.search).has('selftest')) {
     console.assert(positions.length === 31 && new Set(positions).size === 31, '十字日期应有31个唯一格');
