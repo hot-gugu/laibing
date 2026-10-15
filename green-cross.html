@@ -443,7 +443,7 @@ body[data-page="cross"] .page-content{max-width:none;margin:0;padding:10px}
     for (const department of data.departments) {
       html += row('department', department.id, 1, department.name);
       for (const item of data.teams.filter(x => x.departmentId === department.id)) {
-        html += row('team', item.id, 2, item.name, `${data.people.filter(x => x.teamId === item.id).length}人`);
+        html += row('team', item.id, 2, item.name);
       }
     }
     document.getElementById('hierarchy').innerHTML = html;
