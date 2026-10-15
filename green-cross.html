@@ -162,7 +162,8 @@ body[data-page="cross"] .page-content{max-width:none;margin:0;padding:10px}
   let data = load();
   let currentDepartment = data.departments[0]?.id;
   let searchText = '';
-  let currentObject = { type: 'company', id: company.id };
+  const currentAccountPersonId = 'p2'; // Existing demo identity used by personal reporting.
+  let currentObject = { type: 'person', id: currentAccountPersonId };
   let currentYear = now.getFullYear();
   let currentView = 'annual';
   let attentionYear = now.getFullYear();
@@ -512,7 +513,7 @@ body[data-page="cross"] .page-content{max-width:none;margin:0;padding:10px}
       metric('事故填报记录', affected, '条', '#ef2f4f'),
     ].join('');
     const { type, id } = currentObject;
-    document.getElementById('annual-person-entry').innerHTML = type === 'team' || type === 'department' ? `<button class="btn soft" type="button" data-action="annual-members">${type === 'team' ? '班组人员' : '部门人员'}</button>` : type === 'person' ? `<button class="btn soft" type="button" data-action="annual-person-back">返回${(annualPersonOrigin || objectParent(type,id))?.type === 'team' ? '班组' : '部门'}年度卡</button>` : '';
+    document.getElementById('annual-person-entry').innerHTML = type === 'team' || type === 'department' ? `<button class="btn soft" type="button" data-action="annual-members">${type === 'team' ? '班组人员' : '部门人员'}</button>` : type === 'person' && annualPersonOrigin ? `<button class="btn soft" type="button" data-action="annual-person-back">返回${(annualPersonOrigin || objectParent(type,id))?.type === 'team' ? '班组' : '部门'}年度卡</button>` : '';
     const meta = type === 'company' ? `负责人 <b>${company.head}</b>` : type === 'department' ? `负责人 <b>${escapeHtml(dept(id)?.head || '—')}</b>` : type === 'team' ? `所属部门 <b>${escapeHtml(dept(team(id)?.departmentId)?.name || '—')}</b>` : `所属部门 <b>${escapeHtml(dept(person(id)?.departmentId)?.name || '—')}</b>`;
     const sub = type === 'company' ? '公司年度安全生产记录' : type === 'department' ? '部门年度安全生产记录' : type === 'team' ? '班组年度安全生产记录' : '个人年度安全生产记录';
     const exportKey = `${type}:${id}:${currentYear}`;
@@ -910,6 +911,9 @@ body[data-page="cross"] .page-content{max-width:none;margin:0;padding:10px}
     renderTeams();
   }
   if (page === 'cross') {
+    const account = person(currentAccountPersonId);
+    document.querySelector('.topbar-right .avatar').textContent = account?.name?.slice(0, 1) || '我';
+    document.querySelector('.topbar-right > span:last-child').textContent = account?.name || '当前账号';
     const params = new URLSearchParams(location.search);
     const type = params.get('type'), id = params.get('id');
     if (type === 'team' && team(id)) currentObject = { type, id };

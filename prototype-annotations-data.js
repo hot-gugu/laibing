@@ -225,9 +225,9 @@ window.PROTOTYPE_ANNOTATIONS = [
     "context": "green-cross.html::page",
     "target": "#hierarchy",
     "title": "组织架构及权限范围",
-    "body": "公司→部门→班组选择当前统计对象；班组日期归属按人员历史班组读取。此原型为本地演示，正式身份认证与服务端权限未接入。",
-    "updatedAt": "2026-10-14T12:00:00.000Z",
-    "system": true,
+    "body": "公司→部门→班组选择当前统计对象；公司是业务单位，部门和班组都是部门。组织机构中，需要显示业务单位和部门都全部显示。",
+    "updatedAt": "2026-10-15T06:21:14.899Z",
+    "system": false,
     "view": "management"
   },
   {
@@ -236,8 +236,8 @@ window.PROTOTYPE_ANNOTATIONS = [
     "context": "green-cross.html::page",
     "target": "#annual-card",
     "title": "年度卡、日期状态及日详情",
-    "body": "十二个月十字日期布局，每人每天一条当前生效记录。组织取当日已报最高等级；有事故兼有缺报时保留缺报提示；无事故但缺报显示待填报。点击日期打开当前组织/个人日详情。",
-    "updatedAt": "2026-10-14T12:00:00.000Z",
+    "body": "首次进入默认显示当前账号个人年度卡，左侧公司、部门、班组均不选中。当前静态原型沿用本人演示账号卢海贵（p2），真实登录认证未接入。点击左侧公司、部门或班组后显示对应组织年度卡。十二个月十字日期布局，每人每天一条当前生效记录；组织取当日已报最高等级，有事故兼有缺报时保留缺报提示，无事故但缺报显示待填报。点击日期打开当前个人或组织日详情。",
+    "updatedAt": "2026-10-15T06:35:20.616Z",
     "system": true,
     "view": "management"
   },
@@ -414,9 +414,9 @@ window.PROTOTYPE_ANNOTATIONS = [
     "view": "management",
     "target": "#annual-person-entry",
     "title": "班组/部门人员年度卡",
-    "body": "班组与部门对象显示人员入口，公司不显示。打开人员抽屉，可按姓名搜索并进入个人年度卡；部门包含直属未分班组人员。",
+    "body": "班组与部门对象显示人员入口，公司不显示。打开人员抽屉，可按姓名搜索并进入个人年度卡；部门包含直属未分班组人员。从组织人员入口进入个人卡时保留返回来源组织年度卡功能；首次默认本人年度卡不显示返回组织按钮。",
     "system": true,
-    "updatedAt": "2026-10-14T12:00:00.000Z"
+    "updatedAt": "2026-10-15T06:35:20.616Z"
   },
   {
     "id": "cross-management-data-action-print",
@@ -1532,9 +1532,9 @@ window.PROTOTYPE_ANNOTATIONS = [
     "page": "隐患整改.html",
     "context": "隐患整改.html::page",
     "target": "#report",
-    "title": "上报隐患",
-    "body": "点击打开与编辑隐患一致的右侧表单，标题为上报隐患，以新增状态初始化。复用字段、图片上传、审核与整改人员选择、期限快捷项及校验。提交新增记录进入待初审；取消直接关闭，不生成记录。",
-    "updatedAt": "2026-10-14T11:30:01.325Z",
+    "title": "上报隐患占位按钮",
+    "body": "仅保留按钮外观，不跳转、不打开表单、不提示或修改数据。并非可用的新建入口。",
+    "updatedAt": "2026-10-14T20:00:00.000Z",
     "system": true
   },
   {
@@ -1552,9 +1552,9 @@ window.PROTOTYPE_ANNOTATIONS = [
     "page": "隐患整改.html",
     "context": "隐患整改.html::page",
     "target": "#rows",
-    "title": "列表操作与审批流转",
-    "body": "详情打开只读详情；审核直接打开隐患审核表单，只有结果和意见；编辑打开回填表单。审核/编辑校验当前节点权限。非隐患进入审核不通过（非隐患），原上报人可修改重提；任一有权限候选通过推进节点。",
-    "updatedAt": "2026-10-14T11:30:01.325Z",
+    "title": "列表操作与状态流转",
+    "body": "待初审、待复审行显示详情、审核、编辑。审核/编辑点击校验阶段权限，无权限提示切换身份。审核通过依次推进初审→复审→待整改→整改中→已整改；审核不通过退回原上报人，不退给整改人。",
+    "updatedAt": "2026-10-14T20:00:00.000Z",
     "system": true
   },
   {
@@ -1753,8 +1753,8 @@ window.PROTOTYPE_ANNOTATIONS = [
     "context": "隐患整改.html::page",
     "target": ".content .table-wrap thead th:nth-of-type(18)",
     "title": "整改状态",
-    "body": "统一显示待初审、待复审、审核不通过（非隐患）、待整改、整改中、已整改。非隐患演示记录YH20261014NH001仅补充一次，包含审核人和认定意见；不覆盖既有记录。",
-    "updatedAt": "2026-10-14T11:30:01.325Z",
+    "body": "待初审、待复审、审核不通过、待整改、整改中、已整改；与统计和筛选映射一致，列表不使用整改中/待复核别名。",
+    "updatedAt": "2026-10-14T20:00:00.000Z",
     "system": true
   },
   {
@@ -1773,8 +1773,8 @@ window.PROTOTYPE_ANNOTATIONS = [
     "context": "隐患整改.html::page",
     "target": ".content .table-wrap thead th:nth-of-type(20)",
     "title": "可审核人员",
-    "body": "显示当前节点候选人员姓名(手机号)，例如张三(15012589888)。手机号为原型示例用户名。无独立审核用户名列，非实际已办理审核人。",
-    "updatedAt": "2026-10-14T11:30:01.325Z",
+    "body": "当前阶段可审核人员姓名（手机号用户名）；不是已实际办理审核人。当前审核节点列已经移除。",
+    "updatedAt": "2026-10-14T20:00:00.000Z",
     "system": true
   },
   {
@@ -2034,8 +2034,8 @@ window.PROTOTYPE_ANNOTATIONS = [
     "context": "隐患整改.html::template",
     "target": "#fixerChoice",
     "title": "隐患整改人员（必填）",
-    "body": "点击加号打开选择整改人员宽弹窗，样式和审核人员、绿十字无需填报人员弹窗相同。回显已选，支持组织树、姓名搜索、多选和分页。确认只回填当前表单，关闭不改变原选择。至少一人，保存完整fixers，第一人兼容主fixer。",
-    "updatedAt": "2026-10-14T11:30:01.325Z",
+    "body": "加号展开人员复选列表，支持多人，至少一人；以fixers保存完整名单，第一人兼容主fixer字段。任一指定整改人员可执行原整改操作。",
+    "updatedAt": "2026-10-14T20:00:00.000Z",
     "system": true,
     "kind": "layer-template"
   },
@@ -2077,9 +2077,9 @@ window.PROTOTYPE_ANNOTATIONS = [
     "page": "隐患整改.html",
     "context": "隐患整改.html::template",
     "target": "#submit",
-    "title": "提交上报 / 确认修改 / 重新提交",
-    "body": "校验审核人员、整改人员、描述、位置、分类、等级、图片及期限。上报创建新记录并进入待初审；编辑保存字段和修改前后日志；原上报人重新提交回待初审。确认后关闭并刷新列表，取消不写入。",
-    "updatedAt": "2026-10-14T11:30:01.325Z",
+    "title": "确认修改 / 重新提交初审",
+    "body": "校验描述、位置、分类、等级、整改人员、图片、期限以及当前权限。保存全部字段和修改前后日志，成功关闭并刷新列表。普通审核编辑保留阶段；复审更换所属组织则退回初审；原上报人重提也回初审。",
+    "updatedAt": "2026-10-14T20:00:00.000Z",
     "system": true,
     "kind": "layer-template"
   },
@@ -2099,9 +2099,9 @@ window.PROTOTYPE_ANNOTATIONS = [
     "page": "隐患整改.html",
     "context": "隐患整改.html::template",
     "target": "#cancelForm",
-    "title": "取消上报 / 编辑",
-    "body": "未修改时直接关闭表单返回列表；有未保存修改时确认放弃，拒绝则保留当前输入。取消不保存、不自动打开详情，保留列表原筛选和分页。",
-    "updatedAt": "2026-10-14T11:30:01.325Z",
+    "title": "取消编辑",
+    "body": "有未保存修改时确认放弃；取消不保存，不改变原记录，返回该隐患详情。",
+    "updatedAt": "2026-10-14T20:00:00.000Z",
     "system": true,
     "kind": "layer-template"
   },
@@ -2548,6 +2548,27 @@ window.PROTOTYPE_ANNOTATIONS = [
     "updatedAt": "2026-10-15T04:44:49.763247+00:00",
     "system": true,
     "kind": "layer-template"
+  },
+  {
+    "id": "cross-management-initial-scope",
+    "page": "green-cross.html",
+    "context": "green-cross.html::page",
+    "target": "#hierarchy",
+    "system": true,
+    "title": "组织树初始状态与切换",
+    "body": "首次进入不默认选中任何组织节点，右侧展示当前账号个人年度卡。组织树只展示名称、图标和层级，不显示人数；点击公司、部门或班组后选中该节点并切换对应年度卡，保留当前年份。组织人员与权限规则不变。",
+    "updatedAt": "2026-10-15T06:35:20.616Z",
+    "view": "management"
+  },
+  {
+    "id": "index-prototype-guide-entry",
+    "page": "index.html",
+    "context": "index.html::page",
+    "target": "a[href=\"原型标注.HTML\"]",
+    "system": true,
+    "title": "原型标注阅读入口",
+    "body": "来源：首页电脑端分组 → 点击原型标注 → 原型标注.HTML。在当前窗口查看按页面组织的页面截图与功能说明，不修改业务数据。",
+    "updatedAt": "2026-10-15T06:35:20.616Z"
   }
 ];
 window.PROTOTYPE_ANNOTATION_RULES = window.PROTOTYPE_ANNOTATIONS.filter(n=>n.kind==='layer-template'&&!n.deleted);
