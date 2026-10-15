@@ -93,6 +93,12 @@ body[data-page="cross"] .page-content{max-width:none;margin:0;padding:10px}
 .view-tab[hidden]{display:none!important}
 
 .report-selection{padding:10px 12px;margin-bottom:10px;background:var(--soft);border:1px solid #cfe1ff;border-radius:8px;line-height:1.6}.report-selection small{display:block;font-size:12px;color:var(--muted)}.report-picker-search{margin-bottom:10px}.report-orgs{display:flex;gap:6px;flex-wrap:wrap;max-height:108px;overflow:auto;margin-bottom:10px}.report-orgs button{border:1px solid var(--control);border-radius:6px;background:#fff;color:var(--ink);padding:6px 10px;font-size:12px;min-height:30px}.report-orgs button.active{background:var(--soft);border-color:#a9c9ff;color:var(--primary)}.report-person-list{max-height:228px;overflow:auto;border:1px solid rgba(190,211,238,.95);border-radius:8px}.report-person-row{width:100%;display:flex;align-items:center;gap:12px;text-align:left;padding:10px 12px;border:0;border-bottom:1px solid #e7eef8;background:#fff;color:var(--ink);min-height:52px}.report-person-row:last-child{border-bottom:0}.report-person-row.active{background:var(--soft);color:var(--primary)}.report-person-row small{display:block;color:var(--muted);font-size:12px;margin-top:4px}.report-person-row .report-check{margin-left:auto;color:var(--primary)}.report-picker-count{font-size:12px;color:var(--muted);margin:8px 0}.report-chip-list{max-height:176px;overflow:auto}.report-drawer{width:min(620px,100vw)}
+
+.statistics-panel{padding:20px;border:1px solid var(--line);border-radius:12px;background:var(--panel);box-shadow:var(--shadow)}.statistics-head{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-bottom:18px}.statistics-head h1{font-size:22px;font-weight:600}.statistics-head p{font-size:12px;color:var(--muted);margin:6px 0 0}.statistics-filters{display:flex;flex-wrap:wrap;align-items:center;gap:8px;padding:12px;margin-bottom:18px;background:#fff;border:1px solid var(--line);border-radius:8px}.statistics-filters button{height:36px;padding:0 12px;border:1px solid var(--control);border-radius:8px;background:#fff;color:var(--ink)}.statistics-filters button.active{color:var(--primary);background:var(--soft);border-color:#a9c9ff}.statistics-table-wrap{overflow:auto;background:#fff;border:1px solid var(--line);border-radius:8px;margin-bottom:22px}.statistics-table{border-collapse:collapse;width:100%;min-width:1450px;font-size:14px}.statistics-table th{background:#f7fbff;color:#526b91;font-weight:400;white-space:nowrap;padding:12px;border-bottom:1px solid #dce8f7;text-align:right}.statistics-table td{padding:12px;border-bottom:1px solid #e7eef8;text-align:right;white-space:nowrap}.statistics-table :is(th,td):first-child{text-align:left;padding-left:20px;min-width:170px}.statistics-table :is(th,td):last-child{padding-right:20px}.statistics-table .statistics-total{background:var(--soft)}.statistics-table .statistics-total td{font-weight:600}.statistics-section-title{font-size:15px;font-weight:400;margin:0 0 12px}.statistics-section-title:before{content:"";display:inline-block;width:4px;height:14px;margin-right:8px;border-radius:999px;vertical-align:-2px;background:linear-gradient(180deg,#0879ff,#6a4df5)}.statistics-team td:first-child{padding-left:36px}.statistics-table tbody tr:last-child td{border-bottom:0}.statistics-empty{padding:30px;text-align:center;color:var(--muted)}
+
+.cross-content>[hidden]{display:none!important}.statistics-layout{display:grid;grid-template-columns:250px minmax(0,1fr);gap:16px;align-items:start}.statistics-aside{overflow:hidden;position:sticky;top:16px}.statistics-aside .hierarchy{max-height:calc(100vh - 210px);overflow:auto}.statistics-panel{min-width:0}.statistics-filters{align-items:center}.statistics-filters>span{flex:none}#statistics-presets{display:flex;flex-wrap:wrap;gap:8px}#statistics-custom{display:flex;align-items:center;flex-wrap:wrap;gap:8px;flex-basis:100%}#statistics-custom[hidden]{display:none!important}#statistics-custom label{display:flex;align-items:center;gap:8px;font-weight:400}#statistics-custom input{width:132px;height:36px;border:1px solid var(--control);border-radius:8px;padding:0 10px;color:var(--ink);background:#fff}#statistics-error{color:#ef2f4f;margin:0;font-size:12px;flex-basis:100%}#statistics-error:empty{display:none}body.statistics-active .view-tabs-row{display:none!important}@media(max-width:860px){.statistics-layout{grid-template-columns:200px minmax(0,1fr)}.statistics-aside .hierarchy{display:block}.statistics-aside .tree-row{width:100%;white-space:normal}.statistics-aside .tree-depth-1{padding-left:24px}.statistics-aside .tree-depth-2{padding-left:40px}}@media(max-width:620px){.statistics-layout{grid-template-columns:1fr}.statistics-aside{position:static}.statistics-aside .hierarchy{max-height:230px}.statistics-panel{padding:14px}}
+
+#statistics-time{flex-wrap:nowrap;gap:8px;overflow-x:auto}#statistics-presets{flex-wrap:nowrap;flex:none;gap:6px}#statistics-time button{white-space:nowrap;padding:0 9px}#statistics-range{flex:0 0 232px;width:232px;min-width:232px;max-width:232px;height:36px;border:1px solid var(--control);border-radius:8px;padding:0 10px;color:var(--ink);background:#fff;font:inherit;font-size:12px}#statistics-range:focus{outline:2px solid #a9c9ff;outline-offset:1px}.statistics-report-tabs{margin-bottom:14px;display:inline-flex}.statistics-table-wrap[hidden]{display:none!important}#statistics-error:not(:empty){min-width:220px} 
 </style>
 <link rel="stylesheet" href="prototype-annotations.css">
 </head>
@@ -106,6 +112,7 @@ body[data-page="cross"] .page-content{max-width:none;margin:0;padding:10px}
         <a class="nav-link" href="index.html"><span class="nav-glyph">▦</span>班组管理</a>
         -->
         <a class="nav-link active" href="green-cross.html"><span class="nav-glyph">✚</span>绿十字管理</a>
+        <a class="nav-link" href="#statistics" id="statistics-menu"><span class="nav-glyph"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 3v18h17M8 17v-6m5 6V6m5 11v-9" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg></span>绿十字统计报表</a>
       </nav>
       <div class="sidebar-bottom"><span class="online-dot"></span> 本地交互演示 <small>数据仅保存在当前浏览器</small></div>
     </aside>
@@ -124,6 +131,7 @@ body[data-page="cross"] .page-content{max-width:none;margin:0;padding:10px}
         </div></div>
         <section id="attention-view" class="panel attention-panel" hidden><div class="attention-toolbar"><div><h2>未填报/事故人员</h2><p id="attention-scope"></p></div></div><div class="attention-legend"><span class="legend-item"><span class="attention-dot" style="--dot:#179a6b"></span>无事故</span><span class="legend-item"><span class="attention-dot" style="--dot:#6654f7"></span>未填报</span><span class="legend-item"><span class="attention-dot" style="--dot:#8793a3"></span>轻微伤</span><span class="legend-item"><span class="attention-dot" style="--dot:#3287c9"></span>轻伤</span><span class="legend-item"><span class="attention-dot" style="--dot:#e0ad13"></span>重伤</span><span class="legend-item"><span class="attention-dot" style="--dot:#d83b42"></span>死亡</span></div><div class="attention-layout"><div class="attention-calendar"><div class="calendar-toolbar"><div class="month-switch"><button type="button" data-action="prev-attention-month" aria-label="上个月">‹</button><strong id="attention-month-label"></strong><button type="button" data-action="next-attention-month" aria-label="下个月">›</button></div></div><div class="calendar-weekdays"><span>日</span><span>一</span><span>二</span><span>三</span><span>四</span><span>五</span><span>六</span></div><div id="attention-days" class="attention-days"></div></div><aside id="attention-detail" class="attention-detail"></aside></div></section>
         <section id="exempt-view" class="panel exempt-panel" hidden><div class="exempt-toolbar"><div><h2>无需参与填报人员</h2><p>已配置人员不计入应填、未填报和日历状态统计</p></div><button class="btn primary" type="button" data-action="configure-exempt">＋ 新增无需填报人员</button></div><div id="exempt-view-list" class="exempt-list-panel"></div></section>
+<section id="statistics-view" hidden><div class="statistics-layout"><aside class="panel statistics-aside"><div class="section-head compact"><div><h2>组织层级</h2><p>选择公司、部门或班组查看报表</p></div></div><div id="statistics-scope" class="hierarchy" aria-label="统计组织架构"></div></aside><div class="statistics-panel"><div class="statistics-head"><div><h1>绿十字统计报表</h1><p id="statistics-period"></p></div><button type="button" class="btn soft" id="statistics-export">导出报表</button></div><div class="statistics-filters" id="statistics-time"><span>统计时间</span><div id="statistics-presets"></div><input id="statistics-range" type="text" aria-label="统计日期范围" placeholder="YYYY-MM-DD 至 YYYY-MM-DD" autocomplete="off" spellcheck="false"><p id="statistics-error" role="alert"></p></div><div class="view-tabs statistics-report-tabs" role="tablist" aria-label="报表类型"><button class="view-tab active" id="statistics-tab-organizations" type="button" role="tab" aria-selected="true" aria-controls="statistics-organizations" data-statistics-tab="organizations">组织累计汇总</button><button class="view-tab" id="statistics-tab-people" type="button" role="tab" aria-selected="false" aria-controls="statistics-people" data-statistics-tab="people" tabindex="-1">人员累计明细</button></div><div class="statistics-table-wrap" id="statistics-organizations" role="tabpanel" aria-labelledby="statistics-tab-organizations"></div><div class="statistics-table-wrap" id="statistics-people" role="tabpanel" aria-labelledby="statistics-tab-people" hidden></div></div></div></section>
       </main>
     </div>
   </div>
@@ -907,6 +915,92 @@ body[data-page="cross"] .page-content{max-width:none;margin:0;padding:10px}
     if (type === 'team' && team(id)) currentObject = { type, id };
     renderCross();
   }
+
+  let statisticsTab = 'organizations';
+  let statisticsDepartment = '', statisticsTeam = '', statisticsTime = 'month', statisticsStart = today.slice(0,7)+'-01', statisticsEnd = today;
+  const statisticsDate = date => `${date.getFullYear()}-${String(date.getMonth()+1).padStart(2,'0')}-${String(date.getDate()).padStart(2,'0')}`;
+  function statisticsRange(preset, cutoff=today) {
+    const date=new Date(cutoff+'T12:00:00'),year=date.getFullYear(),month=date.getMonth();
+    if(preset==='month')return [statisticsDate(new Date(year,month,1)),cutoff];
+    if(preset==='last-month')return [statisticsDate(new Date(year,month-1,1)),statisticsDate(new Date(year,month,0))];
+    if(preset==='quarter')return [statisticsDate(new Date(year,Math.floor(month/3)*3,1)),cutoff];
+    if(preset==='year')return [statisticsDate(new Date(year,0,1)),cutoff];
+    return ['',cutoff];
+  }
+  function renderStatisticsTime() {
+    document.getElementById('statistics-presets').innerHTML=[['month','本月'],['last-month','上月'],['quarter','本季度'],['year','本年度']].map(([value,label])=>`<button type="button" data-statistics-time="${value}" class="${statisticsTime===value?'active':''}" aria-pressed="${statisticsTime===value}">${label}</button>`).join('');
+    const first=statisticsData().map(row=>row.date).sort()[0]||today;
+    document.getElementById('statistics-range').value=`${statisticsStart||first} 至 ${statisticsEnd}`;
+  }
+  const statisticsGrades = ['slight','minor','serious','death'];
+  function statisticsData() {
+    const peopleById = new Map(data.people.map(member => [member.id,member]));
+    return Object.entries(data.records).flatMap(([key,entry]) => {
+      const split = key.lastIndexOf('|'), personId = key.slice(0,split), date = key.slice(split+1), member = peopleById.get(personId);
+      if (!member || !validDate(date) || date > today || !grade(entry.grade)) return [];
+      const teamId = Object.prototype.hasOwnProperty.call(entry,'teamId') ? entry.teamId : assignmentAt(member,date);
+      const departmentId = entry.departmentId || team(teamId)?.departmentId || member.departmentId;
+      return [{ personId, member, date, grade:entry.grade, teamId, departmentId }];
+    });
+  }
+  function statisticsSummary(rows) {
+    const distinct = items => new Set(items.map(row => row.personId)).size;
+    const accidents = rows.filter(row => row.grade !== 'none');
+    return [distinct(rows), rows.length, rows.filter(row => row.grade === 'none').length, distinct(accidents), accidents.length,
+      ...statisticsGrades.flatMap(id => { const matches = rows.filter(row => row.grade === id); return [distinct(matches),matches.length]; })];
+  }
+  const statisticsHeaders = ['参与填报人数','填报总人次','无事故人次','事故填报人数','事故填报人次','轻微伤人数','轻微伤人次','轻伤人数','轻伤人次','重伤人数','重伤人次','死亡人数','死亡人次'];
+  function statisticsRows() {
+    const all = statisticsData(), rows = all.filter(row => (!statisticsDepartment || row.departmentId === statisticsDepartment) && (!statisticsTeam || row.teamId === statisticsTeam) && (!statisticsStart || row.date >= statisticsStart) && row.date <= statisticsEnd);
+    const organizations = [{ name:statisticsTeam ? team(statisticsTeam)?.name || '所选班组' : statisticsDepartment ? dept(statisticsDepartment)?.name || '所选部门' : '公司合计',values:statisticsSummary(rows),total:true }];
+    for (const department of data.departments.filter(item => !statisticsTeam && (!statisticsDepartment || item.id === statisticsDepartment))) {
+      const departmentRows = rows.filter(row => row.departmentId === department.id);
+      if (!statisticsDepartment) organizations.push({name:department.name,values:statisticsSummary(departmentRows)});
+      for (const item of data.teams.filter(item => item.departmentId === department.id)) organizations.push({name:item.name,values:statisticsSummary(departmentRows.filter(row => row.teamId === item.id)),team:true});
+      const direct = departmentRows.filter(row => !row.teamId || !team(row.teamId));
+      if (direct.length) organizations.push({name:department.name+' / 直属人员',values:statisticsSummary(direct),team:true});
+    }
+    const unknown=rows.filter(row=>!dept(row.departmentId));if(unknown.length)organizations.push({name:'历史组织未匹配',values:statisticsSummary(unknown)});
+    const members = data.people.filter(member => rows.some(row => row.personId === member.id)).map(member=>({name:member.name,organization:[...new Set(rows.filter(row=>row.personId===member.id).map(row=>[dept(row.departmentId)?.name,team(row.teamId)?.name].filter(Boolean).join(' / ')||'历史组织未匹配'))].join('；'),values:statisticsSummary(rows.filter(row=>row.personId===member.id))}));
+    return {all,rows,organizations,members};
+  }
+  function renderStatistics() {
+    const result = statisticsRows(), dates = result.all.map(row => row.date).sort();
+    document.getElementById('statistics-period').textContent = `累计期间：${statisticsStart || dates[0] || '暂无有效记录'} 至 ${statisticsEnd} · 人数按人员去重，人次按人员每日记录计数`;
+    const treeRow=(type,id,name,depth)=>`<button type="button" class="tree-row tree-depth-${depth} ${type==='company'?!statisticsDepartment?'active':'':type==='department'?statisticsDepartment===id&&!statisticsTeam?'active':'':statisticsTeam===id?'active':''}" data-statistics-type="${type}" data-statistics-id="${id}" aria-pressed="${type==='company'?!statisticsDepartment:type==='department'?statisticsDepartment===id&&!statisticsTeam:statisticsTeam===id}">${orgIcon(type)}<span class="org-label">${escapeHtml(name)}</span></button>`;
+    document.getElementById('statistics-scope').innerHTML=treeRow('company',company.id,company.name,0)+data.departments.map(department=>treeRow('department',department.id,department.name,1)+data.teams.filter(item=>item.departmentId===department.id).map(item=>treeRow('team',item.id,item.name,2)).join('')).join('');
+    renderStatisticsTime();
+    const table=(items,personal)=>`<table class="statistics-table"><thead><tr><th>${personal?'姓名':'统计组织'}</th>${personal?'<th>记录所属组织</th>':''}${statisticsHeaders.map(label=>`<th>${label}</th>`).join('')}</tr></thead><tbody>${items.map(item=>`<tr class="${item.total?'statistics-total':item.team?'statistics-team':''}"><td>${escapeHtml(item.name)}</td>${personal?`<td>${escapeHtml(item.organization)}</td>`:''}${item.values.map(value=>`<td>${value}</td>`).join('')}</tr>`).join('')}</tbody></table>`;
+    document.getElementById('statistics-organizations').innerHTML = result.rows.length ? table(result.organizations,false) : empty('暂无统计数据','当前组织尚无有效填报记录');
+    document.getElementById('statistics-people').innerHTML = result.members.length ? table(result.members,true) : empty('暂无人员明细','当前组织尚无有效填报记录');
+  }
+  function showStatistics(on) {
+    document.body.classList.toggle('statistics-active',on);
+    const content=document.querySelector('.cross-content');
+    [...content.children].forEach(el=>{if(el.id==='statistics-view')return;if(on){el.dataset.statisticsWasHidden=String(el.hidden);el.hidden=true}else if(el.dataset.statisticsWasHidden!==undefined){el.hidden=el.dataset.statisticsWasHidden==='true';delete el.dataset.statisticsWasHidden}});
+    document.getElementById('statistics-view').hidden=!on;
+    document.getElementById('statistics-menu').classList.toggle('active',on);
+    document.querySelector('.nav-link[href="green-cross.html"]').classList.toggle('active',!on);
+    document.querySelector('.topbar b').textContent=on?'绿十字统计报表':'绿十字管理';
+    if(on)renderStatistics();
+  }
+  document.getElementById('statistics-menu').onclick=e=>{e.preventDefault();if(document.getElementById('statistics-view').hidden)showStatistics(true);history.replaceState(null,'',location.pathname+location.search+'#statistics')};
+  document.querySelector('.nav-link[href="green-cross.html"]').onclick=e=>{if(!document.getElementById('statistics-view').hidden){e.preventDefault();showStatistics(false);history.replaceState(null,'',location.pathname+location.search)}};
+  document.getElementById('statistics-scope').onclick=e=>{const button=e.target.closest('[data-statistics-type]');if(!button)return;statisticsTeam=button.dataset.statisticsType==='team'?button.dataset.statisticsId:'';statisticsDepartment=button.dataset.statisticsType==='company'?'':statisticsTeam?team(statisticsTeam).departmentId:button.dataset.statisticsId;renderStatistics()};
+  document.getElementById('statistics-presets').onclick=e=>{const button=e.target.closest('[data-statistics-time]');if(!button)return;statisticsTime=button.dataset.statisticsTime;document.getElementById('statistics-error').textContent='';[statisticsStart,statisticsEnd]=statisticsRange(statisticsTime);renderStatistics()};
+  function applyStatisticsRange(){const input=document.getElementById('statistics-range'),error=document.getElementById('statistics-error'),match=input.value.trim().match(/^(\d{4}-\d{2}-\d{2})\s*(?:至|~|～|—|–)\s*(\d{4}-\d{2}-\d{2})$/);if(!match||!validDate(match[1])||!validDate(match[2])){error.textContent='请输入有效范围，例如 2026-10-01 至 2026-10-14';return}const [,start,end]=match;if(start>end){error.textContent='开始日期不能晚于结束日期';return}if(end>today){error.textContent='结束日期不能晚于今天';return}statisticsStart=start;statisticsEnd=end;statisticsTime='range';error.textContent='';renderStatistics()}
+  document.getElementById('statistics-range').onchange=applyStatisticsRange;
+  document.getElementById('statistics-range').onkeydown=e=>{if(e.key==='Enter'){e.preventDefault();applyStatisticsRange()}};
+  function selectStatisticsTab(value){statisticsTab=value;document.querySelectorAll('[data-statistics-tab]').forEach(button=>{const selected=button.dataset.statisticsTab===value;button.classList.toggle('active',selected);button.setAttribute('aria-selected',String(selected));button.tabIndex=selected?0:-1});document.getElementById('statistics-organizations').hidden=value!=='organizations';document.getElementById('statistics-people').hidden=value!=='people'}
+  document.querySelectorAll('[data-statistics-tab]').forEach(button=>{button.onclick=()=>selectStatisticsTab(button.dataset.statisticsTab);button.onkeydown=e=>{if(['ArrowLeft','ArrowRight','Home','End'].includes(e.key)){e.preventDefault();const value=e.key==='Home'?'organizations':e.key==='End'?'people':statisticsTab==='organizations'?'people':'organizations';selectStatisticsTab(value);document.getElementById('statistics-tab-'+value).focus()}}});
+  document.getElementById('statistics-export').onclick=()=>{
+    const result=statisticsRows();if(!result.rows.length){toast('暂无可导出数据');return}
+    const csvCell=value=>'"'+String(value??'').replaceAll('"','""')+'"';
+    const rows=[['统计期间',statisticsStart||result.all.map(row=>row.date).sort()[0]||'',statisticsEnd],['组织累计汇总'],['统计组织',...statisticsHeaders],...result.organizations.map(item=>[item.name,...item.values]),[],['人员累计明细'],['姓名','记录所属组织',...statisticsHeaders],...result.members.map(item=>[item.name,item.organization,...item.values])];
+    const blob=new Blob(['\ufeff'+rows.map(row=>row.map(csvCell).join(',')).join('\r\n')],{type:'text/csv;charset=utf-8'}),url=URL.createObjectURL(blob),link=document.createElement('a');link.href=url;link.download=`绿十字统计报表-${today}.csv`;link.click();setTimeout(()=>URL.revokeObjectURL(url),1000);toast('报表已导出');
+  };
+  if(location.hash==='#statistics')showStatistics(true);
+
   if (new URLSearchParams(location.search).has('selftest')) {
     console.assert(positions.length === 31 && new Set(positions).size === 31, '十字日期应有31个唯一格');
     console.assert(positionsForMonth(28)[27] % 7 === 3, '28天月的28日应在第4列');
