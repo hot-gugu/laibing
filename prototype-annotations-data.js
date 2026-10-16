@@ -2770,6 +2770,103 @@ window.PROTOTYPE_ANNOTATIONS = [
     "updatedAt": "2026-10-15T10:28:53.451760+00:00",
     "system": true,
     "kind": "layer-template"
+  },
+  {
+    "id": "hazard-mobile-pending-demo",
+    "page": "隐患整改移动端.html",
+    "context": "隐患整改移动端.html::page",
+    "target": "#rows",
+    "title": "待整改演示数据",
+    "body": "待整改/审核Tab增加固定编号YH20261016MOBILEFIX001的待整改演示数据：设备操作区安全防护栏固定件松动，由默认身份张三负责。按编号防重，不覆盖用户修改后的状态与记录。该数据仅用于原型演示。",
+    "updatedAt": "2026-10-16T02:07:43.071895+00:00",
+    "system": true
+  },
+  {
+    "id": "hazard-mobile-rectify-entry",
+    "page": "隐患整改移动端.html",
+    "context": "隐患整改移动端.html::page",
+    "target": "[data-rectify]",
+    "title": "隐患整改入口",
+    "body": "指定整改人的待整改、整改中卡片底部显示隐患整改，与延期并排。待整改点击先保存开始整改进入整改中，保存失败不进入表单；整改中直接打开整页隐患整改表单。保留身份和状态校验。",
+    "updatedAt": "2026-10-16T02:07:43.071895+00:00",
+    "system": true
+  },
+  {
+    "id": "hazard-mobile-rectify-description",
+    "page": "隐患整改移动端.html",
+    "context": "隐患整改移动端.html::template",
+    "target": "#result",
+    "title": "整改描述（必填）",
+    "body": "整改页按参考截图使用单列表单、蓝色隐患整改页头及底部固定提交。整改描述多行输入，必填，最多100字，实时显示字数/100。去除首尾空白后为空或超长提示请填写100字以内的整改描述并聚焦。",
+    "updatedAt": "2026-10-16T02:07:43.071895+00:00",
+    "system": true,
+    "kind": "layer-template"
+  },
+  {
+    "id": "hazard-mobile-rectify-photos",
+    "page": "隐患整改移动端.html",
+    "context": "隐患整改移动端.html::template",
+    "target": ".rectify-photo-section",
+    "title": "现场照片（必填）",
+    "body": "点击添加图片选择PNG、JPEG、WebP图片，单张不超过2MB，最多4张；展示预览并允许移除。提交时至少保留一张，否则提示请上传现场照片，不提交。",
+    "updatedAt": "2026-10-16T02:07:43.071895+00:00",
+    "system": true,
+    "kind": "layer-template"
+  },
+  {
+    "id": "hazard-mobile-rectify-resolved",
+    "page": "隐患整改移动端.html",
+    "context": "隐患整改移动端.html::template",
+    "target": ".rectify-resolved",
+    "title": "隐患是否解决",
+    "body": "是/否单选，默认是。选择实时更新按钮状态。提交选择是沿用已整改状态并保存完成时间；选择否保持整改中，不生成完成时间，仍保存本次描述、图片及操作日志。不增加未确认的验收审批流程。",
+    "updatedAt": "2026-10-16T02:07:43.071895+00:00",
+    "system": true,
+    "kind": "layer-template"
+  },
+  {
+    "id": "hazard-mobile-rectify-acceptors",
+    "page": "隐患整改移动端.html",
+    "context": "隐患整改移动端.html::template",
+    "target": "#acceptorPeople",
+    "title": "隐患验收人默认范围",
+    "body": "初始化默认带入安全环保部全体人员。当前原型为王五、赵六、安环人员丙三位演示人员，不是正式客户名单；覆盖旧的固定张三、王五、赵六约定。已有保存验收名单优先回显，不重新覆盖。名单必填，至少一人。",
+    "updatedAt": "2026-10-16T02:07:43.071895+00:00",
+    "system": true,
+    "kind": "layer-template"
+  },
+  {
+    "id": "hazard-mobile-rectify-add-acceptor",
+    "page": "隐患整改移动端.html",
+    "context": "隐患整改移动端.html::template",
+    "target": "#openAcceptorPicker",
+    "title": "添加隐患验收人",
+    "body": "点击加号打开选择隐患验收人弹窗，复用组织树、姓名搜索、多选、分页及已选标签。可额外选择其他部门人员；已选回显，通过集合去重。确认后只更新本次整改表单名单，提交时才随整改结果保存。",
+    "updatedAt": "2026-10-16T02:07:43.071895+00:00",
+    "system": true,
+    "kind": "layer-template"
+  },
+  {
+    "id": "hazard-mobile-rectify-remove-acceptor",
+    "page": "隐患整改移动端.html",
+    "context": "隐患整改移动端.html::template",
+    "target": "[data-remove-acceptor]",
+    "title": "删除隐患验收人",
+    "body": "点击姓名标签叉号从本次表单移除该验收人。默认人员和新增人员均可删除；允许删除后继续添加。全部删空时提交提示请至少选择一名隐患验收人，不保存。",
+    "updatedAt": "2026-10-16T02:07:43.071895+00:00",
+    "system": true,
+    "kind": "layer-template"
+  },
+  {
+    "id": "hazard-mobile-rectify-submit",
+    "page": "隐患整改移动端.html",
+    "context": "隐患整改移动端.html::template",
+    "target": "#submitResult",
+    "title": "提交整改表单",
+    "body": "校验描述、照片、验收名单及当前整改权限和状态。通过后保存整改描述、照片、是否解决、最终验收人ID名单，并记录日志；成功返回列表并更新状态。保存失败保留表单输入。页头返回遇未保存修改先确认，放弃不保存表单内容；此前已生效的开始整改状态不撤回。",
+    "updatedAt": "2026-10-16T02:07:43.071895+00:00",
+    "system": true,
+    "kind": "layer-template"
   }
 ];
 window.PROTOTYPE_ANNOTATION_RULES = window.PROTOTYPE_ANNOTATIONS.filter(n=>n.kind==='layer-template'&&!n.deleted);
