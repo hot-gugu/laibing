@@ -90,15 +90,15 @@ window.PROTOTYPE_ANNOTATIONS = [
     "system": true
   },
   {
-    "id": "default-10",
-    "page": "visitor-admin.html",
-    "context": "visitor-admin.html::page",
-    "target": "#visitor-metrics",
-    "title": "统计筛选",
-    "body": "点击待审核、已审核、当前场内或超期在场筛选。再次点击已选统计恢复全部状态。统计按角色和日期范围计算，当前场内包含超期在场。",
-    "updatedAt": "2026-10-12T00:00:00.000Z",
-    "system": true
-  },
+  "id": "default-10",
+  "page": "visitor-admin.html",
+  "context": "visitor-admin.html::page",
+  "target": "#visitor-metrics",
+  "title": "统计筛选",
+  "body": "点击待审核或已审核切换申请状态；点击当前场内或超期在场切换场内状态。再次点击恢复对应维度全部，保留另一状态、日期和关键词。统计按角色和日期范围计算，当前场内包含超期在场。",
+  "updatedAt": "2026-10-21T06:34:35.937Z",
+  "system": true
+},
   {
     "id": "default-11",
     "page": "visitor-admin.html",
@@ -110,15 +110,15 @@ window.PROTOTYPE_ANNOTATIONS = [
     "system": true
   },
   {
-    "id": "default-12",
-    "page": "visitor-admin.html",
-    "context": "visitor-admin.html::page",
-    "target": "#visitor-tbody",
-    "title": "访客申请列表",
-    "body": "申请状态与场内状态分列。未进场不合并审核文案；进场中表示已进场且未离场。已审核且有效期内可循环进出，每轮保留记录。",
-    "updatedAt": "2026-10-12T00:00:00.000Z",
-    "system": true
-  },
+  "id": "default-12",
+  "page": "visitor-admin.html",
+  "context": "visitor-admin.html::page",
+  "target": "#visitor-tbody",
+  "title": "访客申请列表",
+  "body": "申请状态与场内状态独立分列，名称与筛选条件一致。申请状态为待审核、已审核、已驳回、已过期；历史已取消记录保留原状态但不提供已取消筛选。场内状态为未进场、当前场内、超期在场、已离场；当前场内表示已进场且未离场，超期时显示超期在场。已审核且有效期内可循环进出，每轮保留记录。",
+  "updatedAt": "2026-10-21T06:34:35.937Z",
+  "system": true
+},
   {
     "id": "default-13",
     "page": "visitor-admin.html",
@@ -130,15 +130,25 @@ window.PROTOTYPE_ANNOTATIONS = [
     "system": true
   },
   {
-    "id": "default-14",
-    "page": "visitor-admin.html",
-    "context": "visitor-admin.html::page",
-    "target": "#status-filter",
-    "title": "状态条件",
-    "body": "筛选待审核、已审核、已驳回、已取消、已过期及场内状态，与统计选中同步。",
-    "updatedAt": "2026-10-12T00:00:00.000Z",
-    "system": true
-  },
+  "id": "default-14",
+  "page": "visitor-admin.html",
+  "context": "visitor-admin.html::page",
+  "target": "#status-filter",
+  "title": "申请状态条件",
+  "body": "申请状态支持全部申请状态、待审核、已审核、已驳回、已过期，不提供已取消。与场内状态、日期和关键词按交集筛选，与申请状态统计卡同步。",
+  "updatedAt": "2026-10-21T06:34:35.937Z",
+  "system": true
+},
+  {
+  "id": "visitor-admin-presence-filter",
+  "page": "visitor-admin.html",
+  "context": "visitor-admin.html::page",
+  "target": "#presence-filter",
+  "title": "场内状态条件",
+  "body": "支持全部场内状态、未进场、当前场内、超期在场、已离场。当前场内筛选包含超期在场，与申请状态、日期和关键词取交集。",
+  "updatedAt": "2026-10-21T06:34:35.937Z",
+  "system": true
+},
   {
     "id": "default-15",
     "page": "访客管理移动端.html",
