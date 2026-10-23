@@ -90,15 +90,15 @@ window.PROTOTYPE_ANNOTATIONS = [
     "system": true
   },
   {
-  "id": "default-10",
-  "page": "visitor-admin.html",
-  "context": "visitor-admin.html::page",
-  "target": "#visitor-metrics",
-  "title": "统计筛选",
-  "body": "点击待审核或已审核切换申请状态；点击当前场内或超期在场切换场内状态。再次点击恢复对应维度全部，保留另一状态、日期和关键词。统计按角色和日期范围计算，当前场内包含超期在场。",
-  "updatedAt": "2026-10-21T06:34:35.937Z",
-  "system": true
-},
+    "id": "default-10",
+    "page": "visitor-admin.html",
+    "context": "visitor-admin.html::page",
+    "target": "#visitor-metrics",
+    "title": "统计筛选",
+    "body": "点击待审核或已审核切换申请状态；点击当前场内或超期在场切换场内状态。再次点击恢复对应维度全部，保留另一状态、日期和关键词。统计按角色和日期范围计算，当前场内包含超期在场。",
+    "updatedAt": "2026-10-21T06:34:35.937Z",
+    "system": true
+  },
   {
     "id": "default-11",
     "page": "visitor-admin.html",
@@ -110,15 +110,15 @@ window.PROTOTYPE_ANNOTATIONS = [
     "system": true
   },
   {
-  "id": "default-12",
-  "page": "visitor-admin.html",
-  "context": "visitor-admin.html::page",
-  "target": "#visitor-tbody",
-  "title": "访客申请列表",
-  "body": "申请状态与场内状态独立分列，名称与筛选条件一致。申请状态为待审核、已审核、已驳回、已过期；历史已取消记录保留原状态但不提供已取消筛选。场内状态为未进场、当前场内、超期在场、已离场；当前场内表示已进场且未离场，超期时显示超期在场。已审核且有效期内可循环进出，每轮保留记录。",
-  "updatedAt": "2026-10-21T06:34:35.937Z",
-  "system": true
-},
+    "id": "default-12",
+    "page": "visitor-admin.html",
+    "context": "visitor-admin.html::page",
+    "target": "#visitor-tbody",
+    "title": "访客申请列表",
+    "body": "申请状态与场内状态独立分列，名称与筛选条件一致。申请状态为待审核、已审核、已驳回、已过期；历史已取消记录保留原状态但不提供已取消筛选。场内状态为未进场、当前场内、超期在场、已离场；当前场内表示已进场且未离场，超期时显示超期在场。已审核且有效期内可循环进出，每轮保留记录。 电脑端访客管理列表将申请编号下方的创建时间移为独立列，列名创建时间，紧跟预计到达之后；读取原createdAt，不修改时间数据及列表排序。 电脑端访客列表在访客/单位后新增访客类型列，复用详情isRelatedPerson判断，显示相关方人员或其他人员。已驳回状态悬停显示驳回原因，读取approval.reason；缺失时提示未记录驳回原因，其他状态不加原因提示。不改审核状态、筛选和数据。",
+    "updatedAt": "2026-10-23T02:30:07.266Z",
+    "system": true
+  },
   {
     "id": "default-13",
     "page": "visitor-admin.html",
@@ -130,25 +130,25 @@ window.PROTOTYPE_ANNOTATIONS = [
     "system": true
   },
   {
-  "id": "default-14",
-  "page": "visitor-admin.html",
-  "context": "visitor-admin.html::page",
-  "target": "#status-filter",
-  "title": "申请状态条件",
-  "body": "申请状态支持全部申请状态、待审核、已审核、已驳回、已过期，不提供已取消。与场内状态、日期和关键词按交集筛选，与申请状态统计卡同步。",
-  "updatedAt": "2026-10-21T06:34:35.937Z",
-  "system": true
-},
+    "id": "default-14",
+    "page": "visitor-admin.html",
+    "context": "visitor-admin.html::page",
+    "target": "#status-filter",
+    "title": "申请状态条件",
+    "body": "申请状态支持全部申请状态、待审核、已审核、已驳回、已过期，不提供已取消。与场内状态、日期和关键词按交集筛选，与申请状态统计卡同步。",
+    "updatedAt": "2026-10-21T06:34:35.937Z",
+    "system": true
+  },
   {
-  "id": "visitor-admin-presence-filter",
-  "page": "visitor-admin.html",
-  "context": "visitor-admin.html::page",
-  "target": "#presence-filter",
-  "title": "场内状态条件",
-  "body": "支持全部场内状态、未进场、当前场内、超期在场、已离场。当前场内筛选包含超期在场，与申请状态、日期和关键词取交集。",
-  "updatedAt": "2026-10-21T06:34:35.937Z",
-  "system": true
-},
+    "id": "visitor-admin-presence-filter",
+    "page": "visitor-admin.html",
+    "context": "visitor-admin.html::page",
+    "target": "#presence-filter",
+    "title": "场内状态条件",
+    "body": "支持全部场内状态、未进场、当前场内、超期在场、已离场。当前场内筛选包含超期在场，与申请状态、日期和关键词取交集。",
+    "updatedAt": "2026-10-21T06:34:35.937Z",
+    "system": true
+  },
   {
     "id": "default-15",
     "page": "访客管理移动端.html",
@@ -309,8 +309,8 @@ window.PROTOTYPE_ANNOTATIONS = [
     "context": "visitor.html::page",
     "target": "#visit-form",
     "title": "预约表单",
-    "body": "来访信息按字段单行展示。必填项和手机号格式校验通过、同意信息声明后提交；有效期不超过30天。",
-    "updatedAt": "2026-10-12T00:00:00.000Z",
+    "body": "打开页面直接填写预约，不展示授权页、我的预约及底部导航。预约保存成功后弹出提交成功窗口，展示申请编号、待审核状态、访客姓名及单位、地点、预计到达、有效期、接待人和已填写的手机号码；有效11位接待人号码提供拨打电话按钮，通过tel链接调用设备电话应用。我知道了、Esc或点击遮罩关闭后停留原表单，提交按钮保持禁用防重复；不恢复我的预约及底部导航。 预约提交成功窗口采用手机画布内底部弹层，宽度跟随手机页面（最大480px），底边贴合视口、仅顶部圆角，内容超高可内部滚动并适配底部安全区；成功图标、标题和提示语居中，基本信息继续标签左/值右展示，保留电话及关闭行为。",
+    "updatedAt": "2026-10-23T02:02:57.890Z",
     "system": true
   },
   {
@@ -370,8 +370,9 @@ window.PROTOTYPE_ANNOTATIONS = [
     "target": "#booking-list",
     "title": "我的预约及接待人联系",
     "body": "卡片展示申请编号、预计到达、有效期、接待人员姓名及手机号码。点击查看详情打开本人预约详情；待审核/已审核且未进场可取消。接待人完整号码旁提供拨打电话按钮。",
-    "updatedAt": "2026-10-14T16:00:00.000Z",
-    "system": true
+    "updatedAt": "2026-10-23T01:53:31.261Z",
+    "system": true,
+    "deleted": true
   },
   {
     "id": "cross-management-nav-link-href-green-cross-html",
@@ -1277,8 +1278,9 @@ window.PROTOTYPE_ANNOTATIONS = [
     "target": ".booking-card .booking-host-phone",
     "title": "接待人手机号码与快捷拨打",
     "body": "优先使用申请保存的完整hostPhone。既有LF-DEMO及LF20261007/08/09演示申请缺号时按申请ID稳定映射模拟号码，因此列表和详情始终一致；非演示缺号显示未录入，不推测后四位。",
-    "updatedAt": "2026-10-14T16:00:00.000Z",
-    "system": true
+    "updatedAt": "2026-10-23T01:53:31.261Z",
+    "system": true,
+    "deleted": true
   },
   {
     "id": "visitor-booking-call",
@@ -1287,8 +1289,9 @@ window.PROTOTYPE_ANNOTATIONS = [
     "target": ".booking-card .booking-call",
     "title": "列表拨打电话",
     "body": "来源：我的预约卡片 → 点击号码旁电话图标/拨打电话 → tel:完整手机号 → 设备电话应用。仅完整11位有效手机号显示按钮。是否确认拨出由设备系统决定，不保证网页直接完成通话；不会提交或更改预约。",
-    "updatedAt": "2026-10-14T16:00:00.000Z",
-    "system": true
+    "updatedAt": "2026-10-23T01:53:31.261Z",
+    "system": true,
+    "deleted": true
   },
   {
     "id": "visitor-detail-host",
@@ -1297,9 +1300,10 @@ window.PROTOTYPE_ANNOTATIONS = [
     "target": ".booking-host-phone",
     "title": "详情接待人手机号",
     "body": "本人预约详情复用列表相同号码组件：真实填写优先，演示号码按申请ID稳定映射，非演示缺号不编造。号码与拨打电话按钮同行显示。",
-    "updatedAt": "2026-10-14T16:00:00.000Z",
+    "updatedAt": "2026-10-23T01:53:31.261Z",
     "system": true,
-    "kind": "layer-template"
+    "kind": "layer-template",
+    "deleted": true
   },
   {
     "id": "visitor-detail-call",
@@ -1308,9 +1312,10 @@ window.PROTOTYPE_ANNOTATIONS = [
     "target": ".booking-call",
     "title": "详情拨打电话",
     "body": "来源：本人预约详情接待人号码 → 拨打电话 → tel:手机号码 → 设备电话应用。电话图标与文字共同可点击；系统可能要求确认，不代表网页自动拨通。点击不关闭详情、不修改申请。",
-    "updatedAt": "2026-10-14T16:00:00.000Z",
+    "updatedAt": "2026-10-23T01:53:31.261Z",
     "system": true,
-    "kind": "layer-template"
+    "kind": "layer-template",
+    "deleted": true
   },
   {
     "id": "visitor-detail-companions",
@@ -1319,9 +1324,10 @@ window.PROTOTYPE_ANNOTATIONS = [
     "target": ".detail-section:nth-of-type(4)",
     "title": "本人详情同行信息",
     "body": "展示同行人姓名及同行人数，不再要求或展示新申请的同行手机号。显式人数优先，未填则按解析的姓名数量计算；全部为空显示未填写与0人。",
-    "updatedAt": "2026-10-14T16:00:00.000Z",
+    "updatedAt": "2026-10-23T01:53:31.261Z",
     "system": true,
-    "kind": "layer-template"
+    "kind": "layer-template",
+    "deleted": true
   },
   {
     "id": "visitor-copy-companions",
@@ -1330,8 +1336,9 @@ window.PROTOTYPE_ANNOTATIONS = [
     "target": "[data-copy]",
     "title": "复制预约同行信息",
     "body": "已驳回申请可复制；除既有非敏感信息，还回填同行人姓名多行文本与可选人数。旧记录姓名兼容回填，证件照片仍需重新补充。",
-    "updatedAt": "2026-10-14T16:00:00.000Z",
-    "system": true
+    "updatedAt": "2026-10-23T01:53:31.261Z",
+    "system": true,
+    "deleted": true
   },
   {
     "id": "visitor-admin-companions",
@@ -1339,8 +1346,8 @@ window.PROTOTYPE_ANNOTATIONS = [
     "context": "visitor-admin.html::template",
     "target": ".drawer-section:nth-of-type(3)",
     "title": "管理端同行人详情",
-    "body": "新申请展示同行人姓名原始文本及人数，不要求手机号。旧逐人记录继续保留已有手机号，不修改历史。人数显式填写优先，缺失时按姓名列表长度计算。",
-    "updatedAt": "2026-10-14T16:00:00.000Z",
+    "body": "电脑端访客申请详情：申请编号移入来访信息，标题下不再重复。主联系人身份证号完整显示；同行人员按companionNames原文纯文本显示，保留换行与空格，新申请不trim原文；旧记录无原文时仅以已有姓名拼接兼容，不补手机号。主联系人增加是否相关方人员（是/否）及操作列，为是时显示人员履历按钮，点击打开独立居中弹窗，显示基本信息和已有personHistory履历记录，无记录显示空态；关闭或Esc仅关闭顶层弹窗，保留申请详情。isRelatedParty明确布尔值优先；原型首条固定演示编号LF20261009001无该字段时展示为是以演示入口，其余缺字段暂按否展示，不按姓名或单位猜测身份。真实台账匹配及履历接口未接入，不编造履历。仅电脑管理详情取消身份证脱敏，访客端保持原规则。",
+    "updatedAt": "2026-10-23T02:25:21.940Z",
     "system": true,
     "kind": "layer-template"
   },
@@ -2875,6 +2882,47 @@ window.PROTOTYPE_ANNOTATIONS = [
     "title": "提交整改表单",
     "body": "校验描述、照片、验收名单及当前整改权限和状态。通过后保存整改描述、照片、是否解决、最终验收人ID名单，并记录日志；成功返回列表并更新状态。保存失败保留表单输入。页头返回遇未保存修改先确认，放弃不保存表单内容；此前已生效的开始整改状态不撤回。",
     "updatedAt": "2026-10-16T02:07:43.071895+00:00",
+    "system": true,
+    "kind": "layer-template"
+  },
+  {
+    "id": "visitor-purpose-parameters",
+    "page": "visitor-admin.html",
+    "context": "visitor-admin.html::page",
+    "target": "#parameters-menu",
+    "title": "参数配置 / 基础信息",
+    "body": "参数配置为访客管理下方的独立一级菜单，默认基础信息Tab。到访事由标签支持新增、编辑保存、确认删除；去除首尾空白后必填、不可重复，按字符计数最多10字。访客表单在到访事由下展示已配置标签，点击替换当前事由文本，可继续手工编辑，不自动提交。未配置时不显示快捷标签；配置只影响后续选择，不改历史申请。当前使用独立浏览器本地存储键gt-visitor-purpose-tags-v1，同浏览器同来源共享，跨设备服务端同步尚未接入。",
+    "updatedAt": "2026-10-23T02:09:19.820Z",
+    "system": true
+  },
+  {
+    "id": "visitor-purpose-shortcuts",
+    "page": "visitor.html",
+    "context": "visitor.html::page",
+    "target": ".purpose-shortcuts",
+    "title": "到访事由快捷标签",
+    "body": "读取基础信息中配置的到访事由标签，每个最多10字。点击将该标签填入到访事由，可继续编辑；不触发提交，不修改历史申请。未配置时隐藏标签区域。",
+    "updatedAt": "2026-10-23T02:09:19.820Z",
+    "system": true
+  },
+  {
+    "id": "visitor-contact-phone-tip",
+    "page": "visitor.html",
+    "context": "visitor.html::page",
+    "target": "[name=\"contactPhone\"]",
+    "title": "联系电话与基本信息提示",
+    "body": "施工单位人员如已录入系统，输入手机号后将自动填入基本信息。 本轮仅调整文案；施工人员台账查询和自动填充接口尚未接入，原必填及手机号格式校验保持。",
+    "updatedAt": "2026-10-23T02:17:34.332Z",
+    "system": true
+  },
+  {
+    "id": "visitor-admin-related-history",
+    "page": "visitor-admin.html",
+    "context": "visitor-admin.html::template",
+    "target": ".visitor-detail-drawer .contact-table",
+    "title": "主联系人与相关方履历",
+    "body": "访客管理电脑端详情：申请状态为已驳回时，来访信息内增加独占一行的驳回原因字段，读取approval.reason并保留换行；历史缺失显示未记录驳回原因，其他状态不展示。人员履历仅保留预留按钮，为相关方人员时显示；点击、键盘激活均不打开弹窗、不跳转、不提示、不修改数据，覆盖此前打开履历弹窗约定。",
+    "updatedAt": "2026-10-23T02:28:48.286Z",
     "system": true,
     "kind": "layer-template"
   }
